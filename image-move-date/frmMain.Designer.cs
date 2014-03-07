@@ -34,7 +34,6 @@
             this.txtPhotoPathDstBase = new System.Windows.Forms.TextBox();
             this.txtPhotoPathDst = new System.Windows.Forms.TextBox();
             this.btnMove = new System.Windows.Forms.Button();
-            this.btnCreateName = new System.Windows.Forms.Button();
             this.txtResult = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
@@ -92,23 +91,13 @@
             // 
             // btnMove
             // 
-            this.btnMove.Location = new System.Drawing.Point(606, 99);
+            this.btnMove.Location = new System.Drawing.Point(62, 90);
             this.btnMove.Name = "btnMove";
             this.btnMove.Size = new System.Drawing.Size(79, 37);
             this.btnMove.TabIndex = 24;
             this.btnMove.Text = "移動実行";
             this.btnMove.UseVisualStyleBackColor = true;
             this.btnMove.Click += new System.EventHandler(this.btnMove_Click);
-            // 
-            // btnCreateName
-            // 
-            this.btnCreateName.Location = new System.Drawing.Point(62, 99);
-            this.btnCreateName.Name = "btnCreateName";
-            this.btnCreateName.Size = new System.Drawing.Size(79, 37);
-            this.btnCreateName.TabIndex = 25;
-            this.btnCreateName.Text = "移動先更新";
-            this.btnCreateName.UseVisualStyleBackColor = true;
-            this.btnCreateName.Click += new System.EventHandler(this.btnCreateName_Click);
             // 
             // txtResult
             // 
@@ -126,7 +115,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(697, 289);
             this.Controls.Add(this.txtResult);
-            this.Controls.Add(this.btnCreateName);
             this.Controls.Add(this.btnMove);
             this.Controls.Add(this.txtPhotoPathDst);
             this.Controls.Add(this.label1);
@@ -148,7 +136,6 @@
         private System.Windows.Forms.TextBox txtPhotoPathDstBase;
         private System.Windows.Forms.TextBox txtPhotoPathDst;
         private System.Windows.Forms.Button btnMove;
-        private System.Windows.Forms.Button btnCreateName;
         private System.Windows.Forms.TextBox txtResult;
     }
 }

@@ -24,25 +24,6 @@ namespace image_move_date
             txtPhotoPathDstBase.Text = Config.PhotoPathDstBase;
         }
 
-        private void btnCreateName_Click(object sender, EventArgs e)
-        {
-            String srcdir = txtPhotoPathSrc.Text;
-            String dstdirbase = txtPhotoPathDstBase.Text;
-
-            if(Directory.Exists(srcdir) == false)
-            {
-                MessageBox.Show("ディレクトリを指定してください");
-                return;
-            }
-
-            DirectoryInfo di = new DirectoryInfo(srcdir);
-            DateTime ctime = di.CreationTime;
-            String date = ctime.ToString(@"yyyy\\MM\\dd");
-            String dstdir = Path.Combine(dstdirbase, date);
-            Console.WriteLine(dstdir);
-            txtPhotoPathDst.Text = dstdir;
-        }
-
         private void btnMove_Click(object sender, EventArgs e)
         {
             String dstdir = txtPhotoPathDst.Text;
@@ -80,6 +61,21 @@ namespace image_move_date
 
         private void txtPhotoPathSrc_TextChanged(object sender, EventArgs e)
         {
+            String srcdir = txtPhotoPathSrc.Text;
+            String dstdirbase = txtPhotoPathDstBase.Text;
+
+            if (Directory.Exists(srcdir) == false)
+            {
+                MessageBox.Show("ディレクトリを指定してください");
+                return;
+            }
+
+            DirectoryInfo di = new DirectoryInfo(srcdir);
+            DateTime ctime = di.CreationTime;
+            String date = ctime.ToString(@"yyyy\\MM\\dd");
+            String dstdir = Path.Combine(dstdirbase, date);
+            Console.WriteLine(dstdir);
+            txtPhotoPathDst.Text = dstdir;
         }
 
         private void txtPhotoPathSrc_DragEnter(object sender, DragEventArgs e)
