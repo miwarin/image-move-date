@@ -11,6 +11,11 @@ using System.IO;
 
 namespace image_move_date
 {
+    public class MessageEventArgs : EventArgs
+    {
+        public String Message { get; set; }
+    }
+
     public partial class frmMain : Form
     {
         public frmMain()
@@ -24,6 +29,11 @@ namespace image_move_date
             txtPhotoPathDstBase.Text = Config.PhotoPathDstBase;
         }
 
+        private void OnResultAppend(object sender, MessageEventArgs e)
+        {
+            txtResult.AppendText(String.Format("{0}\n", e.Message));
+        }
+
         private void btnMove_Click(object sender, EventArgs e)
         {
             String dstdir = txtPhotoPathDst.Text;
@@ -34,24 +44,31 @@ namespace image_move_date
             }
 
             String srcdir = txtPhotoPathSrc.Text;
-
             if (String.IsNullOrEmpty(srcdir) == true)
             {
                 MessageBox.Show("移動元ディレクトリを指定してください");
                 return;
             }
 
+            ImageMove(srcdir, dstdir);
+        }
+
+        private void ImageMove(String srcdir, String dstdir)
+        {
             Directory.CreateDirectory(dstdir);
+            MessageEventArgs e = new MessageEventArgs();
 
             string[] files = Directory.GetFiles(srcdir, "*.*");
-            foreach(String srcfilepath in files)
+            foreach (String srcfilepath in files)
             {
                 String srcfilename = Path.GetFileName(srcfilepath);
                 String dstfilepath = Path.Combine(dstdir, srcfilename);
                 File.Move(srcfilepath, dstfilepath);
-                txtResult.AppendText(String.Format("{0} => {1}\n", srcfilepath, dstfilepath));
+                e.Message = String.Format("{0} => {1}", srcfilepath, dstfilepath);
+                OnResultAppend(this, e);
             }
-            txtResult.AppendText("... done\n");
+            e.Message = String.Format("... done");
+            OnResultAppend(this, e);
         }
 
         private void txtPhotoPathDstBase_TextChanged(object sender, EventArgs e)
@@ -105,7 +122,5 @@ namespace image_move_date
             string[] files = (string[])e.Data.GetData(DataFormats.FileDrop, false);
             txtPhotoPathDstBase.Text = files[0];
         }
-
-
     }
 }
