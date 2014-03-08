@@ -6,8 +6,10 @@ using System.Windows.Forms;
 
 namespace image_move_date
 {
-    static class Program
+    class Program : ApplicationContext
     {
+        private MainWindow _MainWindow;
+
         /// <summary>
         /// アプリケーションのメイン エントリ ポイントです。
         /// </summary>
@@ -16,7 +18,21 @@ namespace image_move_date
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainWindow());
+
+            Program program = new Program();
+            Application.Run(program);
+        }
+
+        public Program()
+        {
+            this._MainWindow = new MainWindow();
+            this._MainWindow.FormClosed += new FormClosedEventHandler(OnFormClosed);
+            this._MainWindow.Show();
+        }
+
+        private void OnFormClosed(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
