@@ -1,6 +1,6 @@
 ﻿namespace image_move_date
 {
-    partial class frmMain
+    partial class MainWindow
     {
         /// <summary>
         /// 必要なデザイナー変数です。

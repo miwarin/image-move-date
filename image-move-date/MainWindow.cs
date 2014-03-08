@@ -16,9 +16,9 @@ namespace image_move_date
         public String Message { get; set; }
     }
 
-    public partial class frmMain : Form
+    public partial class MainWindow : Form
     {
-        public frmMain()
+        public MainWindow()
         {
             InitializeComponent();
             SetupWindow();

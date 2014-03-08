@@ -16,7 +16,7 @@ namespace image_move_date
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmMain());
+            Application.Run(new MainWindow());
         }
     }
 }
