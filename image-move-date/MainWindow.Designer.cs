@@ -82,7 +82,6 @@
             // txtPhotoPathDst
             // 
             this.txtPhotoPathDst.AllowDrop = true;
-            this.txtPhotoPathDst.Enabled = false;
             this.txtPhotoPathDst.Font = new System.Drawing.Font("ＭＳ ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.txtPhotoPathDst.Location = new System.Drawing.Point(62, 64);
             this.txtPhotoPathDst.Name = "txtPhotoPathDst";
@@ -109,7 +108,7 @@
             this.txtResult.Size = new System.Drawing.Size(668, 134);
             this.txtResult.TabIndex = 26;
             // 
-            // frmMain
+            // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -121,7 +120,7 @@
             this.Controls.Add(this.txtPhotoPathDstBase);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtPhotoPathSrc);
-            this.Name = "frmMain";
+            this.Name = "MainWindow";
             this.Text = "画像を日付フォルダへ移動";
             this.ResumeLayout(false);
             this.PerformLayout();
