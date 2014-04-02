@@ -11,11 +11,6 @@ using System.IO;
 
 namespace image_move_date
 {
-    public class MessageEventArgs : EventArgs
-    {
-        public String Message { get; set; }
-    }
-
     public partial class MainWindow : Form
     {
         public MainWindow()
@@ -123,4 +118,11 @@ namespace image_move_date
             txtPhotoPathDstBase.Text = files[0];
         }
     }
+
+    public class MessageEventArgs : EventArgs
+    {
+        public String Message { get; set; }
+    }
+
+
 }
